@@ -6,22 +6,20 @@ import java.util.Scanner;
  * @author thiago.araujo
  */
 public class Nota {
+
+    static double mediaBimestre = 0;
     public static void main(String args[]){
         Scanner s = new Scanner(System.in);
 
         System.out.println("Qual é seu nome? ");
         String nome1 = s.next();
         System.out.println("Prazer " +nome1 + " Vamos Começar? ");
-
         String resposta = s.next();
 
         while (resposta.equalsIgnoreCase("Sim")) {
 
             getBimestre();
-            System.out.println("Dgite a média Final");
-            double nome = s.nextDouble();
-            String nome2 = getNota(nome);
-            System.out.println(nome2);
+            getNota();
         }
         System.out.println("Obrigado. ");
 
@@ -38,21 +36,22 @@ public class Nota {
         System.out.println("Entre com a nota Quarto Bimestre ");
         double quartoBimestre = s.nextDouble();
 
-        double mediaBimestre = (primeiroBimestre + segundoBimestre + terceiroBimestre + quartoBimestre )/4;
+        mediaBimestre = (primeiroBimestre + segundoBimestre + terceiroBimestre + quartoBimestre )/4;
         System.out.println("Media Final " + mediaBimestre);
 
 
 
     }
-    public static String getNota(double nome) {
+    public static void getNota() {
 
-        if (nome >= 7 && nome <= 10) {
-            return "Aprovado";
-        } else if (nome >= 5 && nome <= 6) {
-            return "Recuperacao";
+        if (mediaBimestre >= 7 && mediaBimestre <= 10) {
+            System.out.println("Aprovado");
+        } else if (mediaBimestre >= 5 && mediaBimestre < 7) {
+            System.out.println("Recuperacao");
         } else {
-            return "Reprovado";
+            System.out.println("Reprovado");
         }
+
     }
 
 
